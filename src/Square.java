@@ -1,13 +1,9 @@
-public class Square extends Rectangle {
+public class Square extends Rectangle implements Resizeable{
     public Square() {
     }
 
     public Square(double side) {
         super(side, side);
-    }
-
-    public Square(double side, String color, boolean filled) {
-        super(side, side, color, filled);
     }
 
     public double getSide() {
@@ -31,9 +27,9 @@ public class Square extends Rectangle {
 
     @Override
     public String toString() {
-        return "A Square with side="
+        return "A Square with Side = "
                 + getSide()
-                + ", which is a subclass of "
-                + super.toString();
+                + ", Area = "
+                + super.getArea();
     }
 }

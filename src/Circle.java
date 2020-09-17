@@ -1,15 +1,10 @@
-public class Circle extends Shape {
+public class Circle implements Resizeable {
     private double radius = 1.0;
 
     public Circle() {
     }
 
     public Circle(double radius) {
-        this.radius = radius;
-    }
-
-    public Circle(double radius, String color, boolean filled) {
-        super(color, filled);
         this.radius = radius;
     }
 
@@ -31,9 +26,15 @@ public class Circle extends Shape {
 
     @Override
     public String toString() {
-        return "A Circle with radius="
+        return "A Circle with radius = "
                 + getRadius()
-                + ", which is a subclass of "
-                + super.toString();
+                + ", Area = "
+                + getArea();
+    }
+
+    @Override
+    public void resize(double percent) {
+        percent = Math.random() * 100;
+        setRadius(getRadius() + getRadius() * percent/100);
     }
 }

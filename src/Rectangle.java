@@ -1,6 +1,6 @@
-public class Rectangle extends Shape {
-    private double width = 1.0;
-    private double length = 1.0;
+public class Rectangle implements Resizeable {
+    private double width = 3.0;
+    private double length = 5.0;
 
     public Rectangle() {
     }
@@ -10,11 +10,6 @@ public class Rectangle extends Shape {
         this.length = length;
     }
 
-    public Rectangle(double width, double length, String color, boolean filled) {
-        super(color, filled);
-        this.width = width;
-        this.length = length;
-    }
 
     public double getWidth() {
         return width;
@@ -42,11 +37,18 @@ public class Rectangle extends Shape {
 
     @Override
     public String toString() {
-        return "A Rectangle with width="
+        return "A Rectangle with Width = "
                 + getWidth()
-                + " and length="
+                + " and Length = "
                 + getLength()
-                + ", which is a subclass of "
-                + super.toString();
+                + ", Area = "
+                + getArea();
+    }
+
+    @Override
+    public void resize(double percent) {
+        percent = Math.random() * 100;
+        setLength(getLength() + getLength() * percent / 100);
+        setWidth(getWidth() + getWidth() * percent / 100);
     }
 }
